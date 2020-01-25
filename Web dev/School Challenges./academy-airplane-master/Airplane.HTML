@@ -1,0 +1,90 @@
+Airplane.HTML
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+		#ocean{
+			background-image: url(ocean.jpg);
+			width: 900px;
+			height: 700px;
+
+			
+		}
+		.player{
+			position: absolute;
+			background-image: url(player.png);
+			width:70px;
+			height: 75px;
+		}	
+		.enemies{
+			position: absolute;
+			background-image: url(enemy.png);
+			width:70px;
+			height: 75px;
+			position: absolute;
+		}
+	</style>
+	<div id="ocean">
+		<div id="players"></div>
+		<div id="enemies">
+			<div class = 'enemies'style='left:100px; top: 100px;'></div>
+		</div>
+	</div>
+
+
+
+
+
+	<script type="text/javascript">
+		var player = {
+			left: 450, top:620
+		}
+
+		var enemy = [
+		{left:350, top: 200},
+		{left:450, top:250}
+		]
+
+		function drawPlayer(){
+			output = "<div class = 'players' style='left:"+player.left+"px; top: "+player.top+"px'></div>";
+			document.getElementById("players").innerHTML = output;
+		}
+		function drawEnemy(){
+			output = "";
+			
+			for(var x = 0; x<enemy.lenght; x++){
+				output += "<div class = 'enemy' style = 'left:"+enemy[x].left+"px; top: "+enemy[x].top+"px'></div>";
+			}
+			console.log(output);
+		}
+		drawEnemy();
+		document.onkeydown = function(e){
+			console.log(e);
+			if(e.keycode == 37){ // left
+				player.left = player.left -10;
+
+			}
+			if(e.keycode == 39){ // right
+				player.left = player.left +10;
+
+			}
+			if(e.keycode == 38){ // down
+				player.top = player.top +10;
+
+			}
+			if(e.keycode == 40){ // top
+				player.top = player.top - 10;
+
+			}			
+		}
+	drawPlayer();
+	drawEnemy();
+	
+
+
+	</script>
+</body>
+</html>

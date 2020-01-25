@@ -1,0 +1,163 @@
+*{
+    margin: 0px;
+
+}
+#container{
+    background-color: black;
+    width: 960px;
+    height: 980px;
+    margin: auto;
+
+
+}
+#logo{
+    display: inline-block;
+    height: 67px;
+    width: 222px;
+    padding: 30px;
+}
+h6{
+    color:#e4e4e4;
+    display: inline-block;
+    margin-top: 40px;
+    margin-left: 460px;
+    font-size: 20px;
+    vertical-align: top;
+
+}
+#inside-container{
+    background-color:#454545;
+    width: 940px;
+    height: 829px;
+    margin: auto;
+}
+ul{
+    background-color:#444444;
+
+}
+li{
+    display: inline-block;
+    color: #e4e4e4;
+    font-size: 20px;
+    padding: 12px;
+    text-align: left;
+}
+#mainpic{
+    width: 940px;
+    height: 290px;
+    padding: 0px;
+
+}
+.smallpics{
+        width: 230px;
+        height: 120px;
+        display: inline-block;
+        background-color: rgba(24, 20, 20, 0.904);
+        margin-left:2px;
+        margin-top:2px;
+        margin-left: -4px;
+        padding-right: 4px;
+        padding-left:2px;
+        vertical-align:top;
+
+
+}
+.smallpics img{
+    width: 48px;
+    height: 37;
+    display: inline-block;
+    padding: 0px;
+
+}
+h5{
+    color: coral;
+    width: 100px;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: top;
+}
+p{
+    font-size:12px;
+    color:#e4e4e4;
+}
+.mid{
+    background-color: rgba(22, 14, 14, 0.24);
+    width: 940px;
+    height: 120px;
+}
+h1{
+    color: #e4e4e4;
+    font-size: 22px;
+    
+    width: 500px;
+    margin-left:30px;
+    margin-top:15px;
+
+}
+h4{
+    width: 500px;
+    color:#e4e4e4;
+    font-size: 12px;
+    
+    margin-left:30px;
+    margin-top:15px;
+
+}
+button{
+    background-color:orange;
+    color: white;
+    width: 150px;
+    height: 35px;
+    font-size: 20px;
+    display: inline-block;
+    border-radius: 10px;
+}
+.paragraph{
+    width: 680px;
+    height: 120px;
+    display: inline-block;
+    text-align: center;
+    
+
+}
+.footer{
+    width: 940px;
+    height: 325px;
+    background-color:#191919;
+
+
+}
+h2{
+    display:inline-block;
+    color:#e4e4e4;
+    margin-left:20px;
+    margin-top:25px;
+}
+a{
+    margin-left:650px;
+    
+    color: coral;
+}
+.boxes{
+    display:inline-block;
+    width:220px;
+    padding-left:10px;
+}
+.image{
+    width: 200px;
+
+    
+}
+h3 {
+color:coral;
+
+}
+.boxes p{
+
+color:#e4e4e4;
+}
+#back{
+    margin-left:800px;
+    font-size: 15px;
+    display:inline-block;
+}

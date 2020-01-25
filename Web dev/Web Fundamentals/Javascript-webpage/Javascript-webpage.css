@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#Box{
+    width: 960px;
+    height: 800px;
+    background-color:rgb(15, 82, 207);
+    margin: 20px;
+    padding: 20px;
+
+
+}
+#header{
+    min-height: 65px;
+    padding: 2px;
+    background-color: red;
+    border-radius: 10px;
+    margin: 5px;
+}
+.header-topic{
+    color: white;
+    text-align: left;
+}
+#box-left{
+    background-color: lightblue;
+    display: inline-block;
+    width: 180px;
+    padding: 10px;
+    height: min-content;
+    border-radius: 10px;
+}
+.bp{
+    color: white;
+}
+#box-right{
+    background-color:black;
+    display: inline-block;
+    width: 750px;
+    height: 600px;
+    border-radius: 10px;
+    vertical-align: top;
+
+}
+
+ul {
+    margin-left: 20px;
+}
+
+#header h1 {
+    padding-top: 10px;
+}
+.span_{
+    text-decoration: underline;
+    color: lightblue;
+}
+.span{
+    color: blue;
+}
+#lastb {
+    background-color: gray;
+    min-height: 65px;
+    padding: 2px;
+    border-radius: 10px;
+    margin: 30px;
+}
+#lastb h3 {
+    color: black;
+    padding-top: 18px;
+}

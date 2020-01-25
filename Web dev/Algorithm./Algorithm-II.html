@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>OUTPUT:
+        <br>
+        multiply(2,3) is it my var B igual what is inside the ()?X
+        <br>
+        6,10.X
+        <br>
+        3,7
+        <br>
+        15,15,10,15,undefined.Why Don't I have the undefined output if I dont have the return statement?
+        <br>
+        0,2,4,6,8,10,12,14.
+        <br>
+        0,0,0,1,0,2.
+        <br>
+        0,0,0,0,1,2,0,2,4 why do I have the undefined now?
+        <br>
+        0,0,0,0,0,0,1,2,3,4,0,2,4,6,8
+        15
+        0,0,0,0,0,0,1,2,3,4,0,2,4,6,8
+        15
+
+    </p>
+
+</body>
+<script>
+/*function printUpTo(x){
+    for(var x=0; x<=1000; x++){
+        console.log(x);
+    }
+    return("false");
+}
+printUpTo(1000); // should print all the integers from 1 to 1000
+y = printUpTo(-10); // should return false
+console.log(y); // should print false
+
+function printSum(x){
+    var sum = 0;
+    for(var x=0; x<=255; x++){
+        console.log(x);
+        sum = sum + x;
+        console.log(sum);
+    }
+  //your code here
+    return(3);
+}
+y = printSum(255) // should print all the integers from 0 to 255 and with each integer print the sum so far.
+console.log(y) // should print 3
+*/
+function printSumArray(x){
+    var sum = 0;
+    for(var i=0; i<x.length; i++) {
+        sum = sum + x[i];
+    }
+    return sum;
+}
+
+console.log( printSumArray([1,2,3]) ); // should log 6
+</script>
+
+</html>

@@ -1,0 +1,126 @@
+*{
+    outline: 1px; color: black;
+}
+.container{
+    margin: 0px auto;
+    width: 960px;
+    height: 960px;
+    background-color: gainsboro;
+}
+h1{
+    min-height: 35px;
+    display: inline-block;
+    color: black;
+    font-size: 25px;
+    padding: 10px,30px,10px,10px;
+    margin-left: 15px;
+    font-family: 'Times New Roman', Times, serif;
+
+    
+
+}
+h2{
+    min-height: 35px;
+    display: inline-block;
+    color: black;
+    font-size: 20px;
+    padding: 10px,10px,10px,10px;
+    margin-left: 400px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.body{
+    min-height: 800px;
+    background-color: rgb(58, 10, 58);
+
+}
+
+
+#Selfie{
+    display: inline-block;
+    border: 5px solid gray;
+    width: 380px;
+    height: 250px;
+    margin: 20px;
+}
+.webpage{
+    border: 5px solid gray;
+    width: 300px;
+    height: 200px;
+}
+.about{
+    min-height: 240px;
+    vertical-align: top;
+    width: 470px;
+    display: inline-block;
+    margin: 20px;
+    text-align: top;
+    background-color:whitesmoke;
+}
+.bottom{
+    font-size: 18px;
+}
+.top{
+    min-height: 20px;
+    width: 470px;
+    text-align: top;
+    background-color:gray;
+
+}
+.box1{
+    min-height: 450px;
+    width: 310px;
+    display: inline-block;
+    background-image: linear-gradient(to bottom right,rgb(163, 154, 163),rgb(110, 61, 110));
+    margin-left: 5px;
+    vertical-align: top;
+
+}
+.box1-1{
+    min-height: 35px;
+    width: 310px;
+    background-color: gray;
+    text-align: left;
+    font-size: 18px;
+    color: white;
+    
+    
+}
+
+p{
+    min-height: 100px;
+    width: 310px;
+    margin:0px;
+    font-size: 12px;
+}
+h3{
+    font-size:18px;
+    min-height: 35px;
+    width: 310x;
+    background-color: gray;
+    margin: 0px;
+}
+.tec{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+
+}
+.linke{
+    background-color:rgb(142, 224, 19);
+    border-radius: 5px;
+    margin-left: 100px;
+}
+
+.lin{
+    margin: center;
+    width: 20px;
+    height: 20px;
+}
+.linki{
+    vertical-align: top;
+
+}
+.footer{
+    text-align: center;
+}

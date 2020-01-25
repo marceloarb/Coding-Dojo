@@ -1,0 +1,140 @@
+index.HTML
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninjaman</title>
+</head>
+<body>
+	<div id="world"></div>
+	<div id="ninjaman"></div>
+	<div id="ghost"></div>
+
+</body>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		height: 40px;
+	}
+	.row{
+		line-height: 0px;
+	}
+	.wall{
+		background-color: blue;
+		height: 40px;
+		width: 40px;
+		display:inline-block;
+
+	}
+	.blank{
+		background-color: black;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+	}
+	.sushi{
+		background-color: black;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+		background-size: contain;
+		background-image: url('sushi.png');
+	}
+	.onigiri{
+		background-color: black;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+		background-size: contain;
+		background-image: url('onigiri.png');
+	}
+	#ninjaman{
+		background-color: black;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+		background-size: contain;
+		background-image: url('ninja.gif');
+		position: absolute;
+		top: 40px;
+		left: 40px;
+	}
+	#ghost{
+		background-color: red;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+		background-size: contain;
+		background-image: url('bluey.gif');
+		position: absolute;
+		top: 400px;
+		left: 400px;
+
+	}
+	#score{ 
+		width: 40px;
+		display: inline-block;
+	}
+	span{
+		margin-right: 40px;
+	}	
+</style>
+<script type="text/javascript">
+	var map = [
+  [0, 0, 0, 0, 0],
+  [0, 1, 2, 1, 0],
+  [0, 1, 0, 1, 0],
+  [0, 1, 1, 1, 0],
+  [0, 1, 1, 1, 0],
+  [0, 1, 0, 1, 0],
+  [0, 1, 1, 1, 0],
+  [0, 1, 1, 1, 0],
+  [0, 2, 0, 1, 0],
+  [0, 1, 1, 2, 0],
+  [0, 0, 0, 0, 0]
+];
+	var dic{//dic = dictionary.
+		0: 'wall' , 1: 'sushi' , 2: 'blank', 3: 'onigiri'
+	}
+	function drawworld(){
+		output = "";
+		for(var i = 0; i < map.lenght; i++){
+			output += "<div class = 'i'></div>"
+			for(var x = 0; x<map[i].length; x++){
+				output += "<div class = '"+dic[map[i][x]]+"'></div>"
+			}
+			output += "</div>";
+		}
+		document.getElementById('world').innerHTML = output;
+
+	}
+	drawworld();
+	function drawNinjaman() {
+  document.getElementById("ninjaman").style.left = ninjaman.left * 40 + "px";
+  document.getElementById("ninjaman").style.top = ninjaman.top * 40 + 40 + "px";
+  eat(map[ninjaman.top][ninjaman.left])
+}
+
+	function drawBluey() {
+  document.getElementById("ghost").style.left = bluey.left * 40 + "px";
+  document.getElementById("ghost").style.top = (bluey.top * 40 + 40) + "px";
+}
+	document.onkeydown = function(e){
+    		
+    		if(e.keyCode == 37) { // LEFT
+                if(world[ninjaman.y][ninjaman.x -1] !=0 ){
+                	ninjaman.x --;}	
+            if(e.keyCode == 39) { // RIGHT
+                if(world[ninjaman.y][ninjaman.x +1] !=0 ){
+                	ninjaman.x ++;}    	
+			if(e.keyCode == 40) { // DOWN
+                if(world[ninjaman.y +1][ninjaman.x ] !=0 ){
+                	ninjaman.x ++;}
+            if(e.keyCode == 38) { // TOP
+                if(world[ninjaman.y +1][ninjaman.x] !=0 ){
+                	ninjaman.x --;}
+    drawworld();
+    drawNinjaman();
+                	    	
+</script>
+</html>
