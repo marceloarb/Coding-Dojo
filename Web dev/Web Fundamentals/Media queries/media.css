@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+button{
+    background-color: blue;
+    width: 300px;
+}
+.col{
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+}
+.row{
+    padding: 10px;
+    
+}
+@media only screen and (max-width:480px){
+    .sm-4{
+        width:100%;
+    }
+    .sm-0{
+        display: none;
+    }
+}
+@media only screen and (min-width:481px){
+    .med-2{
+        width: 50%;
+    }
+}
+@media only screen and (min-width:1024px){
+    .lg1 {
+        width: 25%;;
+    }
+    .lg2 {
+        width: 50%;
+
+    }
+    .lg3 {
+        width: 75%;
+    }
+}
