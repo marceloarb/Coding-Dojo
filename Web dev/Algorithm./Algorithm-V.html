@@ -23,28 +23,32 @@
         arr[x-1]=arr[x];
     }
     arr[arr.length-1]=0;
-    console.log(arr);
+    console.log(arr);*/
 
 
 
 
 
-    var arr=[1,2,3];
-    var temp=[];
-    for(var x=0,i=arr.length-1; x<arr.length,i<arr.length; x++,i--){
-        temp.push(arr[i]);
-        if(i==0){
-            break;
-        }
+    var arr=[1,2,3,4,5,6,7,8,9];
+    var temp=0;
+    for(var x=0,i=arr.length-1; i > x; x++,i--){
+        temp=arr[x];
+        arr[x]=arr[i];
+        arr[i]=temp;
+
+
     }
-    console.log(temp);*/
+    console.log(arr);
+    console.log(temp);
+    
+    
     var arr=[10, "marcelo","junior",67];
     var arrnew=[];
 
         for( var x=0; x<arr.length; x++){
             arrnew.push(arr[x])*2;
             arrnew.push(arr[x]);
-        }
+        
 
 console.log(arrnew);
 
