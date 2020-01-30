@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Assignment3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('img').click(function() {
+                console.log($(this).hide("img"), $(this).show('angular.png'));
+
+                    });
+
+
+        })
+    </script>
+</head>
+<body>
+    <img src='ajax.png' data-alt-src='angular.png' />
+
+    <img src="ajax.png" >
+    <img src="angular.png">
+    <img src="CSS.png" >
+    <img src="HTML.png" >
+    <img src="d3.png" >
+    <img class="show" style="display: none;" src="bootstrap.png">
+    
+</body>
+</html>
