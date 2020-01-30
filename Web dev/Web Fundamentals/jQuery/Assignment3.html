@@ -10,7 +10,10 @@
     <script>
         $(document).ready(function(){
             $('img').click(function() {
-                console.log($(this).hide("img"), $(this).show('angular.png'));
+                temp=$(this).attr("src");
+                $(this).attr('src',$(this).attr("data-alt-src"));
+                $(this).attr(('data-alt-src'),temp);
+
 
                     });
 
@@ -21,12 +24,12 @@
 <body>
     <img src='ajax.png' data-alt-src='angular.png' />
 
-    <img src="ajax.png" >
-    <img src="angular.png">
-    <img src="CSS.png" >
-    <img src="HTML.png" >
-    <img src="d3.png" >
-    <img class="show" style="display: none;" src="bootstrap.png">
+    <img src="ajax.png" data-alt-src='CSS.png' />
+    <img src="angular.png" data-alt-src='d3.png' />
+    <img src="CSS.png" data-alt-src='codepen.png'  />
+    <img src="HTML.png" data-alt-src='mysql.png' />
+    <img src="d3.png"data-alt-src='php.png' />
+    
     
 </body>
 </html>
