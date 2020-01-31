@@ -1,0 +1,45 @@
+.wall{
+    background-color: blue;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+}
+body{
+    background-color:black;
+}
+.coin{
+    background-image: url("gold-coins-26.png");
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+.empty{
+    background-color:black;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+}
+#pacman{
+    background-image: url("pacman-png-25186.png");
+    height: 30px;
+    width: 30px;
+    background-size: contain;
+    position: absolute;
+    top:330px;
+    left:400px;
+}
+.coin {
+    background-image: url("gold-coins-26.png");
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    display: inline-block;
+    background-size: contain;
+}
+#world{
+    width: 720px;
+    height: auto;
+    line-height: 0px;
+    margin: 0 auto;
+    margin-top: 300px;
+}

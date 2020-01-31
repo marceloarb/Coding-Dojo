@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="pacman.css">
+    <title>Pacman</title>
+    
+</head>
+<body>
+    <div id="world"></div>
+    <div id="pacman"></div>
+    
+
+
+
+
+
+
+    <script>
+        var dictionary = {
+            1: 'wall', 0: 'coin', 2:'empty'
+        }
+        var world=[
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        
+
+        ];
+
+
+        function displayworld(){
+            var output="";
+            for(var x=0; x<world.length; x++){
+                for( var i=0; i<world[x].length; i++){
+                    if(world[x][i] == 2){
+                        output += '<div class="empty"></div>'}
+                    if(world[x][i] == 1){
+                        output += '<div class="wall"></div>'}
+                    if(world[x][i] == 0){
+                        output += '<div class="coin"></div>'}
+                }
+            }
+            document.getElementById('world').innerHTML = output;
+        }
+        displayworld();
+
+        var pacman = {
+            x:1,
+            y:1
+        }
+        
+        function displaypacman(){
+            document.getElementById("pacman").style.top = 300+pacman.y*30 +"px"
+            document.getElementById("pacman").style.left = 600+pacman.x*30 +"px"
+        }
+        displaypacman();
+        document.onkeydown = function(e){
+            if(e.keyCode == 37 ){
+                pacman.x --;
+                
+            }
+            else if(e.keyCode == 39){
+                pacman.x ++;
+            }
+            else if(e.keyCode == 38){
+                pacman.y --;
+            }
+            else if(e.keyCode == 40){
+                pacman.y ++;
+            }
+            //I dont know what world[pacman.y][pacman.x] represents?//
+            displaypacman();
+        }
+        
+
+    </script>
+    
+    
+</body>
+</html>
