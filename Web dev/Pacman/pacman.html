@@ -11,6 +11,7 @@
 <body>
     <div id="world"></div>
     <div id="pacman"></div>
+    <div id="score"></div>
     
 
 
@@ -19,6 +20,7 @@
 
 
     <script>
+        var score = 0;
         var dictionary = {
             1: 'wall', 0: 'coin', 2:'empty'
         }
@@ -27,9 +29,9 @@
         [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
         [1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1],
         [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
-        [1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1],
         [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
-        [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1],
         [1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1],
         [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
         [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -58,28 +60,38 @@
             x:1,
             y:1
         }
+        function displayscore(){
+            document.getElementById("score").innerHTML = score;
+        }    
         
         function displaypacman(){
-            document.getElementById("pacman").style.top = 300+pacman.y*30 +"px"
-            document.getElementById("pacman").style.left = 600+pacman.x*30 +"px"
+            document.getElementById("pacman").style.top = pacman.y*30 +"px"
+            document.getElementById("pacman").style.left = pacman.x*30 +"px"
         }
         displaypacman();
         document.onkeydown = function(e){
-            if(e.keyCode == 37 ){
+            if(e.keyCode == 37 && world[pacman.y][pacman.x-1]!=1){
                 pacman.x --;
                 
             }
-            else if(e.keyCode == 39){
+            else if(e.keyCode == 39 && world[pacman.y][pacman.x+1]!=1){
                 pacman.x ++;
             }
-            else if(e.keyCode == 38){
+            else if(e.keyCode == 38 && world[pacman.y-1][pacman.x]!=1){
                 pacman.y --;
             }
-            else if(e.keyCode == 40){
+            else if(e.keyCode == 40 && world[pacman.y+1][pacman.x] !=1){
                 pacman.y ++;
             }
+            if(world[pacman.y][pacman.x] == 0){
+                world[pacman.y][pacman.x] = 1;
+                score += 10;
+            }
             //I dont know what world[pacman.y][pacman.x] represents?//
+            world[pacman.y][pacman.x]=0;
             displaypacman();
+            displayworld();
+            displayscore();
         }
         
 
