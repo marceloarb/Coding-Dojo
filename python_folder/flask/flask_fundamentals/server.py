@@ -7,12 +7,12 @@ def marcelo():
 
 @app.route('/say/<int:number>/<other>')
 def show(number,other):
-    return str(number)
+    return number*other
 
 
 @app.route('/a')
 def server():
-    return render_template('a.html',phrase="Here is my phrase",name=["marcelo","brandom","joao"])
+    return render_template('a.html',phrase="Here is my phrase",name=("hello"))
     
 
 
