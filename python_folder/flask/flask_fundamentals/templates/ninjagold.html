@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p style="color: blue;">Your Gold:</p> <input value="{{session['num']}}"/> 
+    <form action="/process" method="post" >
+        <input type="hidden" name="building" value="reset" />
+        <input type="submit" value="Restart!"/>
+    </form>
+    <div style="display: inline-block; width: 300px; height: 300px; background-color: blue; border: black solid;">
+        <form action="/process" method="post" >
+            <input type="hidden" name="building" value="Farm" />
+            <input type="submit" value="Find Gold!"/>
+        </form>
+    </div>
+    <div style="display: inline-block; width: 300px; height: 300px; background-color: blue; border: black solid;">
+        <form action="/process" method="post" >
+            <input type="hidden" name="building" value="house" />
+            <input type="submit" value="Find Gold!"/>
+        </form>
+    </div>
+    <div style="display: inline-block; width: 300px; height: 300px; background-color: blue; border: black solid;">
+        <form action="/process" method="post" >
+            <input type="hidden" name="building" value="car" />
+            <input type="submit" value="Find Gold!"/>
+        </form>
+    </div>
+    <div style="display: inline-block; width: 300px; height: 300px; background-color: blue; border: black solid;">
+        <form action="/process" method="post" >
+            <input type="hidden" name="building" value="lunch" />
+            <input type="submit" value="Find Gold!"/>
+        </form>
+    </div>
+
+</body>
+</html>
