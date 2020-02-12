@@ -1,22 +1,32 @@
 from django.shortcuts import render, HttpResponse,redirect
-
+from .models import Shoe
 def index(request):
-    return HttpResponse("placeholder to display a new form to create a new blog")
+    context={
+        'allshoes':Shoe.objects.all()
+    }
+    return render(request,'first_project.html',context)
 
-def new(request):
-    return HttpResponse("placeholder to display a new form to create a new blog")
+
 
 def create(request):
+    if request.method == 'POST':
+        Shoe.objects.create(
+            brand=request.POST['brand'],
+            size=request.POST['size'],
+            style=request.POST['style'],
+
+        )
     return redirect('/')
 
-def show(request,number):
-    return HttpResponse('placeholder to display blog number ' + number)
 
-def edit(request,number):
-    return HttpResponse('placeholder to edit blog ' + number)
 
-def destroy(request,number):
+def destroy(request,id):
+    if request.method == 'POST':
+        shoe_to_delete = Shoe.objects.get(id=id)
+        shoe_to_delete.delete()
     return redirect('/')
+    
+        
 
 
 
