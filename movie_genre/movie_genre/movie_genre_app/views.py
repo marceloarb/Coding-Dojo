@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Genre,Movie
+from django.contrib import messages
 
 def index_movie(request):
     context = {
@@ -23,6 +24,10 @@ def add_movie(request):
             title = request.POST['title'],
             desc = request.POST['desc'],
         )
+    errors = Movie.objects.basic_validator(request.POST)
+    if len(errors)>2:
+        for key, value in errors.items():
+            messages.error(request, value)
     return redirect('/')
 
 def add_genre(request):

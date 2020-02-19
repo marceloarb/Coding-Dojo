@@ -36,11 +36,9 @@
           <tr>
             <th scope="row">{{genre.id}}</th>
             <td>{{genre.name}}</td>
-            <!-- Why do I need this action -->
-            <form action="send_genre/{{genre.id}}"> 
-              {% csrf_token %}
-              <td><a type="submit" href="send_genre/{{genre.id}}">View</a></td>
-          </form>
+
+              <td><a href="send_genre/{{genre.id}}">View</a></td>
+
           </tr>
         {% endfor %}
       </tbody>

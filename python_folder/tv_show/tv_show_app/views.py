@@ -46,7 +46,7 @@ def display_edit(request,id):
 
     return render(request,'edit_show.html',context)
 
-def edit_show(request):
+def edit_show(request,id):
     if request.method == 'POST':
         errors = Show.objects.basic_validator(request.POST)
 
@@ -55,14 +55,16 @@ def edit_show(request):
                 messages.error(request, value)
             return redirect('/')
         else:
-            Show.objects.update(
+            
+            Show.objects.filter(id=id).update(
                 title = request.POST['title'],
                 network = request.POST['network'],
                 date = request.POST['date'],
                 desc = request.POST['desc'],
             )
+            
 
-            return redirect('/edit_show')
+            return redirect('/show/'+str(id))
 
 def destroy(request,id):
     delete = Show.objects.get(id=id)
