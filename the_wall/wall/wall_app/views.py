@@ -61,5 +61,11 @@ def create_comment(request,id):
         comment = Comment.objects.create(user = User.objects.get(id=request.session['user_id']), comment = request.POST['comment'], message = Message.objects.get(id=id))
     return redirect('/homepage')
 
+def delete_message(request,id):
+    destroy = Message.objects.get(id=id)
+    destroy.delete()
+
+    return redirect('/homepage')
+
 
 # Create your views here.

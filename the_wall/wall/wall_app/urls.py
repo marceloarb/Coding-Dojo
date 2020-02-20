@@ -8,5 +8,6 @@ urlpatterns = [
     path('homepage', views.homepage),
     path('delete_session', views.delete_session),
     path('create_message',views.create_message),
-    path('create_comment/<int:id>', views.create_comment)
+    path('create_comment/<int:id>', views.create_comment),
+    path('delete_message/<int:id>', views.delete_message),
 ]

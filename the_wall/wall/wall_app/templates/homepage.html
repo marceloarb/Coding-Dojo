@@ -25,11 +25,16 @@
     </form>
 
     </div>
-  
+    <div class="jumbotron">
     {% for post in message %}
+    
     <ul class="list-group">
       <li class="list-group-item list-group-item-primary">{{post.user.name}} {{post.created_at}}</li>
       <li class="list-group-item list-group-item-light"> {{post.message}}</li>
+      <form action="/delete_message/{{post.id}}" method="POST">
+        {% csrf_token %}
+      <li><input type="submit" value="Delete"></li>
+      </form>
       <form action="create_comment/{{post.id}}" method="POST">
         {% csrf_token %}
         {% for comment in post.comments_message.all %}
@@ -41,6 +46,7 @@
       </form>
     </ul>
     {% endfor %}
+    </div>
 
 
     <a href="/delete_session" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Logout</a>
