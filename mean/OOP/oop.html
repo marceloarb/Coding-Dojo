@@ -14,17 +14,61 @@
 
 <body>
     <script>
-        var tigger = { character: "Tigger" };
-        var pooh = { character: "Pooh" };
-        var piglet = { character: "Piglet" };
-        var bees = { character: "Bees" };
-        var owl = { character: "Owl" };
-        var robin = { character: "Robin" };
-        var robbit = { character: "Robbit" };
-        var gopher = { character: "Gopher" };
-        var kanga = { character: "Kanga" };
-        var eeyore = { character: "Eeyore" };
-        var heffalumps = { character: "Heffalumps" };
+        var tigger = { character: "Tigger",north:pooh,greet: function(){console.log("I am a Tigger that eats people!")} };
+        var pooh = { character: "Pooh",
+        north:robin,
+        west:piglet,
+        south:tigger,
+        east:bees,
+        greet: function(){
+            console.log("My name is pooh and I play xuxa");
+            } 
+        };
+        var piglet = { character: "Piglet",
+        greet: function(){
+            console.log("hello my name is piglet");
+            } 
+        };
+        var bees = { character: "Bees",
+        greet: function(){
+            console.log("Hello my name is bees")
+        }
+        };
+        var owl = { character: "Owl", 
+        greet: function(){
+            console.log("Hello my name is owl")
+        }
+        };
+        var robin = { character: "Robin", 
+        greet: function(){
+            console.log("Hello my name is robin")
+        }
+        };
+        var robbit = { character: "Robbit", 
+        greet: function(){
+            console.log("Hello my name is robbit")
+        }
+        };
+        var gopher = { character: "Gopher", 
+        greet: function(){
+            console.log("Hello my name is gopher")
+        }
+        };
+        var kanga = { character: "Kanga", 
+        greet: function(){
+            console.log("Hello my name is kanga")
+        }
+        };
+        var eeyore = { character: "Eeyore", 
+        greet: function(){
+            console.log("Hello my name is eeyore")
+        }
+        };
+        var heffalumps = { character: "Heffalumps", 
+        greet: function(){
+            console.log("Hello my name is heffalumps")
+        }
+        };
         tigger.north = pooh;
         pooh.west = piglet;
         pooh.south = tigger;
@@ -49,7 +93,9 @@
         eeyore.east = heffalumps;
         heffalumps.west = eeyore;
         var player = {
-            location: tigger
+            location: tigger,
+            greet:tigger
+
         }
 
         function move(direction) {
@@ -60,6 +106,7 @@
                 if (next_location) {
                     player.location = player.location.north
                     console.log('You are now at ' + (player.location.character) + '`s houser');
+                    console.log((player.location).greet());
                     return player;
                 }
                 else {
@@ -73,6 +120,7 @@
                 if (next_location) {
                     player.location = player.location.south
                     console.log('You are now at ' + (player.location.character) + '`s houser');
+                    console.log((player.location).greet());
                     return player;
                 }
                 else {
@@ -86,6 +134,7 @@
                 if (next_location) {
                     player.location = player.location.east
                     console.log('You are now at ' + (player.location.character) + '`s houser');
+                    console.log((player.location).greet());
                     return player;
                 }
                 else {
@@ -99,6 +148,7 @@
                 if (next_location) {
                     player.location = player.location.west
                     console.log('You are now at ' + (player.location.character) + '`s houser');
+                    console.log((player.location).greet());
                     return player;
                 }
                 else {
