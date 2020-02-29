@@ -1,12 +1,18 @@
 from django.db import models
 import re
+from datetime import date
 import datetime
+
 class UserManager(models.Manager):
     def basic_validator(self, requestPOST):
         errors = {}
         print(requestPOST['date'])
         if datetime.datetime.now().strftime('%Y-%m-%d') <= requestPOST['date']:
             errors['date'] = "Date needs to be past date "
+        birth = datetime.datetime.now().strptime(requestPOST['date'],'%Y-%m-%d')
+        today=date.today()
+        if (birth.year + 12,birth.month, birth.day)>(today.year,today.month, today.day):
+            errors['age'] = "you are too young"
         if len(requestPOST['name']) < 3:
             errors['name'] = "Name is too short"
         users_with_name = User.objects.filter(name=requestPOST['name'])
