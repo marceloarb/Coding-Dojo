@@ -94,9 +94,37 @@
         heffalumps.west = eeyore;
         var player = {
             location: tigger,
-            greet:tigger
+            honey: false
 
         }
+        function pickup(){
+            if ( player.location == bees && player.honey == false){
+            player.honey = true;
+            console.log('I have honey'+(player.honey)+'.');
+            }
+            else{
+                console.log("you  don`t have honey already, Bastard!")
+            }
+        }
+
+        function mission(){ 
+            var houses = [tigger,pooh,piglet,owl,robin,robbit,gopher,kanga,eeyore,heffalumps]; 
+            var destination = {
+                location : houses[Math.floor(Math.random()*houses.length)],
+            }
+            return destination.location;
+        }
+        var win = mission();
+        function drop(){
+            if (player.location == win){
+                console.log('You Win');
+            }
+            else{
+                player.honey = false;
+                console.log("You're dumb butt lost your honey");
+            }
+        }
+
 
         function move(direction) {
             var next_location
