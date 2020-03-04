@@ -33,11 +33,31 @@ class Ninja {
 
     }
 }
+class Sensei extends Ninja{
+    constructor(name){
+        super(name);
+        this.wisdom = 10;
+        this.speed = 10;
+        this.strength = 10;
+        this.health = 200;
+    } 
+
+    speak(){
+        var drink = this.drinkSake();
+        console.log("hello");
+    }
+
+    
+}
+
 ninja1 = new Ninja("marcelo");
 ninja2 = new Ninja("Bill Gates");
 ninja3 = new Ninja("Splinter");
+sensei1 = new Sensei("Super");
 ninja1.kick(ninja2);
 ninja1.punch(ninja2);
 ninja1.drinkSake();
 ninja1.sayName();
 ninja1.showStats();
+sensei1.showStats();
+sensei1.speak();
