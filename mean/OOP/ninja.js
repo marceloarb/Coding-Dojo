@@ -15,7 +15,7 @@ class Ninja {
     }
 
     kick(ninja){
-        this.health -= 15;
+        this.health -= 15* strength;
         console.log(`${this.name} was kicked by ${ninja.name} and lost 15 health`);
 
     }
@@ -43,7 +43,7 @@ class Sensei extends Ninja{
     } 
 
     speak(){
-        var drink = this.drinkSake();
+        let drink = this.drinkSake();
         console.log("hello");
     }
 
