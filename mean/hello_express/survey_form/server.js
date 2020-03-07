@@ -14,6 +14,7 @@ app.use(session({
 app.get('/',(req,res)=>{
     res.render('index')
 })
+
 app.post('/result',(req,res)=>{
     let data = {
         "name": req.body.name,
@@ -22,8 +23,12 @@ app.post('/result',(req,res)=>{
         "comment": req.body.comment
 
     }
+    req.session.data = data;
 
-    res.render('result',{data:data})
+    res.redirect('/result')
+})
+app.get('/result',(req,res)=>{
+    res.render('result',{data:req.session.data})
 })
 
 
