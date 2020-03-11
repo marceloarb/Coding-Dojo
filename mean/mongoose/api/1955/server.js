@@ -1,9 +1,8 @@
 const express = require("express");
 const app = express();
 const mongoose = require('./config/mongo.js');
-app.use(express.static(__dirname + "/static"));
 app.use(express.json());
-
+app.use(express.static( __dirname + '/public/dist/public' ));
 
 
 
