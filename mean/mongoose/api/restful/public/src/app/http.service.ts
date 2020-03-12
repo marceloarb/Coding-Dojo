@@ -12,12 +12,18 @@ export class HttpService {
   getTasks(){
     return this._http.get('/tasks');
     }
-  postTasks(tasks){
-    console.log(tasks)
-    return this._http.post('/tasks',tasks);
+  postTasks(newtask){
+    console.log(newtask)
+    return this._http.post('/tasks',newtask);
   }
   getEdit(id){
     return this._http.get('/edit/'+id);
+  }
+  delete(id){
+    return this._http.delete('/delete/'+id);
+  }
+  edit(id,task){
+    return this._http.put('/update/'+id,task);
   }
 
 

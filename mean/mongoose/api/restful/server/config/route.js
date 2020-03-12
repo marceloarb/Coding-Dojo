@@ -9,10 +9,10 @@ module.exports = function(app){
     app.get('/edit/:id',(req,res)=>{
         task.edit(req,res);
     })
-    app.post('/edit/:id',(req,res)=>{
+    app.put('/update/:id',(req,res)=>{
         task.update(req,res);
     })
-    app.get('/delete/:id',(req,res)=>{
+    app.delete('/delete/:id',(req,res)=>{
         task.delete(req,res);
     })
 }

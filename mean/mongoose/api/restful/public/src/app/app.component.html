@@ -9,7 +9,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body> 
+  <body>
+    <form (submit)="postTasks()">
+      <input type="text" name="title" [(ngModel)]="newtask.title">
+      <input type="text" name="description" [(ngModel)]="newtask.description">
+      <input type="submit" value="Create Task">
+    </form>
     <button (click)="getTasksFromService()">Show Tasks!</button>
       <table class="table table-dark" *ngFor="let x of tasks" >
         <thead>
@@ -18,8 +23,8 @@
                 <th scope="col">Title:</th>
                 <th scope="col">Description:</th>
                 <th scope="col">completed:</th>
-                <th scope="col">created_at:</th>
-                <th scope="col">updated_at:</th>
+                <th scope="col">Edit Task</th>
+                <th scope="col">Delete</th>
                 <th scope="col">Links</th>
             </tr>
         </thead>
@@ -29,14 +34,24 @@
                 <td> {{x.title }} </td>
                 <td> {{x.description}}  </td>
                 <td> {{x.completed }} </td>
-                <td> {{x.createdAt }} </td>
-                <td> {{x.updatedAt }} </td>
+                <td> {{x.title}} </td>
+                <td><button (click)="delete(x._id)">Delete</button> </td>
                 <td><button (click)="getEdit(x._id)">Show a Task!
                 </button></td>
             </tr>
         </tbody>
       </table>
-      <h1 *ngIf = "task">{{task.title}}</h1>
+      <app-task *ngIf = "task">
+        <h1>{{task.title}}</h1>
+        <form (submit)="edit(task._id)">
+          <input type="text" name="title" [(ngModel)]="task.title">
+          <input type="text" name="description" [(ngModel)]="task.description">
+          <input type="submit" value="Update Task">
+        </form>
+      </app-task>
+      
+      
+
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

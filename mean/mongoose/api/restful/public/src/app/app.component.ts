@@ -10,10 +10,12 @@ export class AppComponent implements OnInit {
   title = 'public';
   tasks: any;
   task: any;
+  newtask: any;
   constructor(private _httpService: HttpService){
     
   }
   ngOnInit(){
+    this.newtask = {"title": ""};
     // this.getTasksFromService()
     // this.postTasks('happy end','kdjfdfasdfasdfasdkdj')
   }
@@ -25,10 +27,10 @@ export class AppComponent implements OnInit {
       
     })
   }
-  postTasks(title:String,description:String): void{
-    let observable = this._httpService.postTasks({'title':title , 'description':description});
+  postTasks(){
+    let observable = this._httpService.postTasks(this.newtask);
     observable.subscribe(data => {
-      this.tasks.push(data);
+      this.tasks.push(data)
     });
     
     
@@ -40,4 +42,18 @@ export class AppComponent implements OnInit {
       
     })
   }
+  delete(id){
+    let observable = this._httpService.delete(id)
+    observable.subscribe(data => {
+      this.getTasksFromService()
+      
+    })
+  }
+  edit(id){
+    this._httpService.edit(id,this.task).subscribe(data =>{
+      this.task = data;
+      this.getTasksFromService()
+    })
+  }
+
 }
