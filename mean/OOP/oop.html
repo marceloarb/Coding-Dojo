@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <script>
+        var tigger = { character: "Tigger",north:pooh,greet: function(){console.log("I am a Tigger that eats people!")} };
+        var pooh = { character: "Pooh",
+        north:robin,
+        west:piglet,
+        south:tigger,
+        east:bees,
+        greet: function(){
+            console.log("My name is pooh and I play xuxa");
+            } 
+        };
+        var piglet = { character: "Piglet",
+        greet: function(){
+            console.log("hello my name is piglet");
+            } 
+        };
+        var bees = { character: "Bees",
+        greet: function(){
+            console.log("Hello my name is bees")
+        }
+        };
+        var owl = { character: "Owl", 
+        greet: function(){
+            console.log("Hello my name is owl")
+        }
+        };
+        var robin = { character: "Robin", 
+        greet: function(){
+            console.log("Hello my name is robin")
+        }
+        };
+        var robbit = { character: "Robbit", 
+        greet: function(){
+            console.log("Hello my name is robbit")
+        }
+        };
+        var gopher = { character: "Gopher", 
+        greet: function(){
+            console.log("Hello my name is gopher")
+        }
+        };
+        var kanga = { character: "Kanga", 
+        greet: function(){
+            console.log("Hello my name is kanga")
+        }
+        };
+        var eeyore = { character: "Eeyore", 
+        greet: function(){
+            console.log("Hello my name is eeyore")
+        }
+        };
+        var heffalumps = { character: "Heffalumps", 
+        greet: function(){
+            console.log("Hello my name is heffalumps")
+        }
+        };
+        tigger.north = pooh;
+        pooh.west = piglet;
+        pooh.south = tigger;
+        pooh.north = robin;
+        pooh.east = bees;
+        piglet.north = owl;
+        piglet.east = pooh;
+        bees.west = pooh;
+        bees.north = robbit;
+        owl.south = piglet;
+        owl.east = robin;
+        robin.south = pooh;
+        robin.west = owl;
+        robin.north = kanga;
+        robin.east = robbit;
+        robbit.south = bees;
+        robbit.east = gopher;
+        robbit.west = robin;
+        kanga.south = robin;
+        kanga.north = eeyore;
+        eeyore.south = kanga;
+        eeyore.east = heffalumps;
+        heffalumps.west = eeyore;
+        var player = {
+            location: tigger,
+            honey: false
+
+        }
+        function pickup(){
+            if ( player.location == bees && player.honey == false){
+            player.honey = true;
+            console.log('I have honey'+(player.honey)+'.');
+            }
+            else{
+                console.log("you  don`t have honey already, Bastard!")
+            }
+        }
+
+        function mission(){ 
+            var houses = [tigger,pooh,piglet,owl,robin,robbit,gopher,kanga,eeyore,heffalumps]; 
+            var destination = {
+                location : houses[Math.floor(Math.random()*houses.length)],
+            }
+            return destination.location;
+        }
+        var win = mission();
+        function drop(){
+            if (player.location == win){
+                console.log('You Win');
+            }
+            else{
+                player.honey = false;
+                console.log("You're dumb butt lost your honey");
+            }
+        }
+
+
+        function move(direction) {
+            var next_location
+
+            if (direction == "north") {
+                next_location = player.location.north
+                if (next_location) {
+                    player.location = player.location.north
+                    console.log('You are now at ' + (player.location.character) + '`s houser');
+                    console.log((player.location).greet());
+                    return player;
+                }
+                else {
+                    console.log("You may not go that way!")
+                    return player;
+                }
+            }
+
+            if (direction == "south") {
+                next_location = player.location.south
+                if (next_location) {
+                    player.location = player.location.south
+                    console.log('You are now at ' + (player.location.character) + '`s houser');
+                    console.log((player.location).greet());
+                    return player;
+                }
+                else {
+                    console.log("You may not go that way!")
+                    return player;
+                }
+            }
+
+            if (direction == "east") {
+                next_location = player.location.east
+                if (next_location) {
+                    player.location = player.location.east
+                    console.log('You are now at ' + (player.location.character) + '`s houser');
+                    console.log((player.location).greet());
+                    return player;
+                }
+                else {
+                    console.log("You may not go that way!")
+                    return player;
+                }
+            }
+
+            if (direction == "west") {
+                next_location = player.location.west
+                if (next_location) {
+                    player.location = player.location.west
+                    console.log('You are now at ' + (player.location.character) + '`s houser');
+                    console.log((player.location).greet());
+                    return player;
+                }
+                else {
+                    console.log("You may not go that way!")
+                    return player;
+                }
+            }
+        }
+
+    </script>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
