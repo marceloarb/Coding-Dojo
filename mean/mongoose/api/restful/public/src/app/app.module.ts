@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HttpService } from './http.service';
 import {FormsModule} from '@angular/forms';
 import { TaskComponent } from './task/task.component';
+import { CakeComponent } from './cake/cake.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent
+    TaskComponent,
+    CakeComponent
   ],
   imports: [
     BrowserModule,
