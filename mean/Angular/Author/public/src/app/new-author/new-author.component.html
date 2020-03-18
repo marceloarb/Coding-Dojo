@@ -1,7 +1,19 @@
 <button [routerLink]="['/']">Home</button>
 <form (submit)="create()">
-    <input type="text"  name="name" [(ngModel)]='author.name'>
-    <input type="text" name="quote" [(ngModel)]='author.quote'>
+    <input type="text" 
+    name="name" 
+    required 
+    minlength="3"
+    [(ngModel)]='author.name'
+    #name='ngModel'>
+    <input 
+    type="text" 
+    name="quote"
+    required 
+    minlength="3"
+
+    [(ngModel)]='author.quote'
+    #quote='ngModel'>
     <input  type="submit" value="Submit">
 
 </form>
