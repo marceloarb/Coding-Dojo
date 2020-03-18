@@ -1,0 +1,8 @@
+
+    <button   [routerLink]="['/']">Home</button>
+    <form (submit)="update(id)">
+        <input type="text"  name="name"  [(ngModel)]='author.name'>
+        <input type="text" name="quote" [(ngModel)]='author.quote'>
+        <input type="submit"  value="Edit">
+
+    </form>
