@@ -1,5 +1,5 @@
 <button [routerLink]="['/']">Home</button>
-<form (submit)="create()">
+<form (submit)="create() ">
     <input type="text" 
     name="name" 
     required 
@@ -17,3 +17,10 @@
     <input  type="submit" value="Submit">
 
 </form>
+
+{{ name.errors | json }}
+
+
+<div *ngFor="let key of error">
+    <h1>{{key}}</h1>
+</div>

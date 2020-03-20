@@ -11,7 +11,8 @@ export class UpdateAuthorComponent implements OnInit {
   id:any;
   author:any;
   constructor(private _httpService: HttpService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _router: Router
     ) { }
 
   ngOnInit() {
@@ -26,6 +27,7 @@ export class UpdateAuthorComponent implements OnInit {
   update(id){
     this._httpService.update(this.id,this.author).subscribe(data=>{
       this.author = data;
+      this._router.navigate(['']);
     })
   }
   show_id(id){

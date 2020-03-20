@@ -22,10 +22,10 @@
         </thead>
         <tbody>
             <tr>
-                <td> {{id.quote}}  </td>
-                <td> Votes </td>
+                <td> {{author.quote}}  </td>
+                <td> {{author.votes}} </td>
       
-                <td><button >Vote up</button>||<button> Vote down</button> || <button [routerLink]="['/']" (click)="delete(id._id)">Delete</button>  </td>
+                <td><button (click)="vote_up(author._id)" >Vote up</button>||<button (click)="vote_down(author._id)"> Vote down</button> || <button [routerLink]="['/']" (click)="delete(author._id)">Delete</button>  </td>
             </tr>
         </tbody>
       </table>

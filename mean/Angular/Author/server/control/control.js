@@ -25,12 +25,12 @@ module.exports = {
                 res.json(author);
             })
             .catch(err => {
-                console.log("We have an error!", err);
+                bad=[];
                 // adjust the code below as needed to create a flash message with the tag and content you would like
                 for (var key in err.errors) {
-                    req.flash('registration', err.errors[key].message);
+                    bad.push(err.errors[key].message);
                 }
-                res.json(err);
+                res.json(bad);
             })
     },
     show:function(req,res){
@@ -84,6 +84,52 @@ module.exports = {
         
         
     },
+    votes_up: function(req,res){
+        console.log(req.params.id)
+        Author.findOne({_id:req.params.id})
+            .then(author=>{
+                author.votes += 1;
+                author.save()
+                .then(author=>{
+                    res.json(author);
+                })
+                
+            })
+            // .then(author=>{
+            //     res.json(author);
+            // })
+            .catch(err => {
+                console.log("We have an error!", err);
+                // adjust the code below as needed to create a flash message with the tag and content you would like
+                for (var key in err.errors) {
+                    req.flash('registration', err.errors[key].message);
+                }
+                res.json(err);
+            })
+    },
+    votes_down: function(req,res){
+        console.log(req.params.id)
+        Author.findOne({_id:req.params.id})
+            .then(author=>{
+                author.votes -= 1;
+                author.save()
+                .then(author=>{
+                    res.json(author);
+                })
+                
+            })
+            // .then(author=>{
+            //     res.json(author);
+            // })
+            .catch(err => {
+                console.log("We have an error!", err);
+                // adjust the code below as needed to create a flash message with the tag and content you would like
+                for (var key in err.errors) {
+                    req.flash('registration', err.errors[key].message);
+                }
+                res.json(err);
+            })
+    }
     
 
 }

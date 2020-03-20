@@ -8,7 +8,8 @@ const CakeSchema = new mongoose.Schema({
     img: { type: String, required: true, minlength: [3, "At least 3 character "]},
     rates:[RateSchema]
 }, {timestamps: true});
-const Cake = mongoose.model('Cake', CakeSchema);
-const Rate = mongoose.model('Rate', RateSchema);
-
-module.exports = Cake;
+const model = {
+    Cake : mongoose.model('Cake', CakeSchema),
+    Rate : mongoose.model('Rate', RateSchema)
+}
+module.exports = model;

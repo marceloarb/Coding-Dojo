@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<!doctype html>\n<html lang=\"en\">\n  <head>\n    <title>Title</title>\n    <!-- Required meta tags -->\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n\n    <!-- Bootstrap CSS -->\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n    <button   [routerLink]=\"['/']\">Home</button>\n    <table class=\"table table-dark\"  >\n        <thead>\n            <tr>\n                <th scope=\"col\">Quote</th>\n                <th scope=\"col\">Votes</th>\n                <th scope=\"col\">Actions available</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td> {{id.quote}}  </td>\n                <td> Votes </td>\n      \n                <td><button >Vote up</button>||<button> Vote down</button> || <button [routerLink]=\"['/']\" (click)=\"delete(id._id)\">Delete</button>  </td>\n            </tr>\n        </tbody>\n      </table>\n    <!-- Optional JavaScript -->\n    <!-- jQuery first, then Popper.js, then Bootstrap JS -->\n    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>\n    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>\n  </body>\n</html>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<!doctype html>\n<html lang=\"en\">\n  <head>\n    <title>Title</title>\n    <!-- Required meta tags -->\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n\n    <!-- Bootstrap CSS -->\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n    <button   [routerLink]=\"['/']\">Home</button>\n    <table class=\"table table-dark\"  >\n        <thead>\n            <tr>\n                <th scope=\"col\">Quote</th>\n                <th scope=\"col\">Votes</th>\n                <th scope=\"col\">Actions available</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td> {{author.quote}}  </td>\n                <td> {{author.votes}} </td>\n      \n                <td><button (click)=\"vote_up(author._id)\" >Vote up</button>||<button (click)=\"vote_down(author._id)\"> Vote down</button> || <button [routerLink]=\"['/']\" (click)=\"delete(author._id)\">Delete</button>  </td>\n            </tr>\n        </tbody>\n      </table>\n    <!-- Optional JavaScript -->\n    <!-- jQuery first, then Popper.js, then Bootstrap JS -->\n    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>\n    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>\n  </body>\n</html>");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<button [routerLink]=\"['/']\">Home</button>\n<form (submit)=\"create()\">\n    <input type=\"text\"  name=\"name\" [(ngModel)]='author.name'>\n    <input type=\"text\" name=\"quote\" [(ngModel)]='author.quote'>\n    <input  type=\"submit\" value=\"Submit\">\n\n</form>");
+/* harmony default export */ __webpack_exports__["default"] = ("<button [routerLink]=\"['/']\">Home</button>\n<form (submit)=\"create() \">\n    <input type=\"text\" \n    name=\"name\" \n    required \n    minlength=\"3\"\n    [(ngModel)]='author.name'\n    #name='ngModel'>\n    <input \n    type=\"text\" \n    name=\"quote\"\n    required \n    minlength=\"3\"\n\n    [(ngModel)]='author.quote'\n    #quote='ngModel'>\n    <input  type=\"submit\" value=\"Submit\">\n\n</form>\n\n{{ name.errors | json }}\n\n\n<div *ngFor=\"let key of error\">\n    <h1>{{key}}</h1>\n</div>");
 
 /***/ }),
 
@@ -366,6 +366,7 @@ const routes = [
     { path: 'edit/:id', component: _update_author_update_author_component__WEBPACK_IMPORTED_MODULE_4__["UpdateAuthorComponent"] },
     { path: 'author/:id', component: _author_id_author_id_component__WEBPACK_IMPORTED_MODULE_5__["AuthorIdComponent"] },
     { path: '', pathMatch: 'full', redirectTo: '' },
+    { path: '**', redirectTo: '' }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -547,11 +548,21 @@ let AuthorIdComponent = class AuthorIdComponent {
     }
     show_id(id) {
         this._httpService.show_id(this.id).subscribe(data => {
-            this.id = data;
+            this.author = data;
         });
     }
     delete(id) {
         this._httpService.delete(id).subscribe(data => {
+        });
+    }
+    vote_up(id) {
+        this._httpService.vote_up(id).subscribe(data => {
+            this.author = data;
+        });
+    }
+    vote_down(id) {
+        this._httpService.vote_down(id).subscribe(data => {
+            this.author = data;
         });
     }
 };
@@ -663,6 +674,12 @@ let HttpService = class HttpService {
     delete(id) {
         return this._http.delete('/authors/' + id);
     }
+    vote_up(id) {
+        return this._http.get('/vote/' + id);
+    }
+    vote_down(id) {
+        return this._http.get('/votes/' + id);
+    }
 };
 HttpService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -712,6 +729,7 @@ let NewAuthorComponent = class NewAuthorComponent {
     }
     ngOnInit() {
         this.author = { name: "", quote: "" };
+        this.error = [];
     }
     show() {
         this._httpService.show().subscribe(data => {
@@ -720,15 +738,14 @@ let NewAuthorComponent = class NewAuthorComponent {
     }
     create() {
         this._httpService.create(this.author).subscribe(data => {
-            this.author = data;
-            this.show();
+            if (data instanceof Array) {
+                this.error = data;
+            }
+            else {
+                this.author = data;
+                this.show();
+            }
         });
-    }
-    table() {
-        this.show_table = false;
-    }
-    not() {
-        this.show_table = true;
     }
 };
 NewAuthorComponent.ctorParameters = () => [
@@ -778,9 +795,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UpdateAuthorComponent = class UpdateAuthorComponent {
-    constructor(_httpService, _route) {
+    constructor(_httpService, _route, _router) {
         this._httpService = _httpService;
         this._route = _route;
+        this._router = _router;
     }
     ngOnInit() {
         this.author = { name: "", quote: "" };
@@ -792,6 +810,7 @@ let UpdateAuthorComponent = class UpdateAuthorComponent {
     update(id) {
         this._httpService.update(this.id, this.author).subscribe(data => {
             this.author = data;
+            this._router.navigate(['']);
         });
     }
     show_id(id) {
@@ -802,7 +821,8 @@ let UpdateAuthorComponent = class UpdateAuthorComponent {
 };
 UpdateAuthorComponent.ctorParameters = () => [
     { type: _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
 ];
 UpdateAuthorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

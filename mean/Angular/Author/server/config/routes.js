@@ -7,7 +7,6 @@ module.exports = function(app){
         author.new(req,res);
     })
     app.post('/authors',(req,res)=>{
-        console.log(req.body)
         author.create(req,res);
     })
     app.get('/authors/:id/edit',(req,res)=>{
@@ -19,6 +18,12 @@ module.exports = function(app){
     })
     app.delete('/authors/:id',(req,res)=>{
         author.delete(req,res);
+    })
+    app.get('/vote/:id',(req,res)=>{
+        author.votes_up(req,res);
+    })
+    app.get('/votes/:id',(req,res)=>{
+        author.votes_down(req,res);
     })
 
 }

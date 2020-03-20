@@ -1,4 +1,5 @@
-const Cake = require('../models/model.js');
+const Cake = require('../models/model.js').Cake;
+const Rate = require('../models/model.js').Rate;
 module.exports = {
     index: function(req,res){
         Cake.find()
@@ -28,6 +29,10 @@ module.exports = {
     })},
     
     comment: function(req,res){
+        let rate = new Rate()
+        rate.stars = req.body.stars;
+        rate.comment = req.body.comment;
+        rate.save()
         Cake.findOne({_id: req.params.id})
 
         .then(cake=>{

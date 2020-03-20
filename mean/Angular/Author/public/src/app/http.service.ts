@@ -24,5 +24,11 @@ export class HttpService {
   delete(id){
     return this._http.delete('/authors/'+id);
   }
+  vote_up(id){
+    return this._http.get('/vote/'+id);
+  }
+  vote_down(id){
+    return this._http.get('/votes/'+id);
+  }
 
 }

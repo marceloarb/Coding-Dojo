@@ -9,7 +9,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class AuthorIdComponent implements OnInit {
   id:any;
-  num:number;
+  author:any;
   constructor(private _httpService: HttpService,
     private _route: ActivatedRoute){}
 
@@ -23,13 +23,25 @@ export class AuthorIdComponent implements OnInit {
 
   show_id(id){
     this._httpService.show_id(this.id).subscribe(data=>{
-      this.id = data;
+      this.author = data;
     })
   }
   delete(id){
     this._httpService.delete(id).subscribe(data=>{
       
     })
+  }
+  vote_up(id){
+    this._httpService.vote_up(id).subscribe(data=>{
+      this.author = data;
+    })
+    
+  }
+  vote_down(id){
+    this._httpService.vote_down(id).subscribe(data=>{
+      this.author = data;
+    })
+    
   }
   
 }

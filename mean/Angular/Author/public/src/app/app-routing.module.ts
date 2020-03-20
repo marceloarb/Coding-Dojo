@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: 'edit/:id', component: UpdateAuthorComponent},
   {path: 'author/:id', component: AuthorIdComponent},
   { path: '', pathMatch: 'full', redirectTo: '' },
+  { path: '**', redirectTo: '' } 
 
 
 ];

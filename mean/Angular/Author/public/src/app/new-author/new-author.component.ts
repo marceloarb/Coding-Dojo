@@ -8,12 +8,13 @@ import { HttpService } from '../http.service';
 })
 export class NewAuthorComponent implements OnInit {
   author:any;
-  show_table:boolean;
+  error:any;
   constructor(private _httpService: HttpService) { }
   
 
   ngOnInit() {
     this.author = {name:"",quote:""}
+    this.error = [];
   }
   show(){
     this._httpService.show().subscribe(data=>{
@@ -22,15 +23,15 @@ export class NewAuthorComponent implements OnInit {
   }
   create(){
     this._httpService.create(this.author).subscribe(data=>{
-      this.author = data;
-      this.show();
+      if (data instanceof Array){
+        this.error = data;
+      }
+      else{
+        this.author = data;
+        this.show();
+      }
     })
   }
-  table(){
-    this.show_table = false;
-  }
-  not(){
-    this.show_table = true;
-  }
+  
 
 }
