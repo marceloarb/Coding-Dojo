@@ -21,7 +21,8 @@ module.exports = function(app){
     app.delete('/movie/:id',(req,res)=>{
         movie.delete(req,res);
     })
-    app.delete('/review/:id',(req,res)=>{
+    app.delete('/review/:movie_id/:review_id',(req,res)=>{
+
         movie.delete_id(req,res);
     })
 

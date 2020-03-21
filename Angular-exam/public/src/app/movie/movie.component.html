@@ -13,7 +13,7 @@
 
     <div>
         <h1>Movie List</h1>
-        <button [routerLink]="['/new_movie']">Add a new movie</button>
+        <button [routerLink]="['new']">Add a new movie</button>
         <table class="table table-dark" *ngFor="let x of movies" >
             <thead>
                 <tr>
@@ -31,57 +31,7 @@
             </tbody>
         </table>
     </div>
-    <app-create-movie *ngIf="form" >
-      <div class="jumbotron">
-        <form (submit)="postmovies() ">
-            <input type="text" 
-            name="title"
-            placeholder="Title"
-            required 
-            minlength="3"
-            [(ngModel)]='create_movie.title'
-            #title='ngModel'>
-            <input type="text" 
-            name="name" 
-            placeholder="Name"
-            required 
-            minlength="3"
-            [(ngModel)]='create_movie.name'
-            #name='ngModel'>
-            <select name="stars"
-            required 
-            minlength="1"
-            #stars='ngModel'
-            [(ngModel)]="create_movie.stars">
-                <option value="1" >1</option>
-                <option value="2" >2</option>
-                <option value="3" >3</option>
-                <option value="4" >4</option>
-                <option value="5" >5</option>
-            </select>
-            <input 
-            type="text" 
-            name="review"
-            placeholder="Review"
-            required 
-            minlength="3"
-        
-            [(ngModel)]='create_movie.review'
-            #review='ngModel'>
-            <input  type="submit" value="Submit">
-        
-        </form>
-        {{ title.errors | json }}
-        {{ name.errors | json }}
-        {{ review.errors | json }}
-        {{ stars.errors | json }}
-        
-        
-        <div *ngFor="let key of error">
-            <h1>{{key}}</h1>
-        </div>
-    </div>
-    </app-create-movie>
+    <router-outlet></router-outlet>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

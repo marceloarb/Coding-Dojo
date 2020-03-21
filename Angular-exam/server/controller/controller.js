@@ -92,10 +92,25 @@ module.exports = {
         })
     },
     delete_id: function(req,res){
-        Movie.findOne({_id: req.params.id})
-        .then(movie=>{
-            movie.reviews.pop({_id: req.body.id})
+        console.log(req.params.review_id)
+        console.log(req.params.movie_id)
+        Movie.updateOne({_id: req.params.movie_id}, {$pull: {"reviews":{_id: req.params.review_id}}})
+        .then(movie => {
+            res.json(movie)
         })
+        // Movie.findOne({_id: req.params.movie_id})
+        // .then(movie=>{
+        //     for (let x = 0; x<movie.reviews.length; x++){
+        //         if(movie.reviews[x]._id == req.params.review_id){
+        //             movie.reviews.splice(x,1)
+        //             break;
+        //         }
+        //     }
+        //     console.log(movie.reviews)
+        //     movie.save()
+        //     .then(data => res.json(data))
+        //     //res.json(movie);
+        // })
         .catch(err => {
                         console.log("We have an error!", err);
                         // adjust the code below as needed to create a flash message with the tag and content you would like

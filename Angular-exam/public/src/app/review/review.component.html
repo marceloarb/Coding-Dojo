@@ -30,7 +30,7 @@
               <td> {{x.stars}} </td>
               <td> {{x.review}} </td>
     
-              <td> <button [routerLink]="['/']" (click)="delete_id(x._id)">Delete</button>  </td>
+              <td> <button (click)="delete_id(x._id)">Delete</button>  </td>
           </tr>
         </tbody>
       </table>

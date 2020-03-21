@@ -21,17 +21,19 @@ export class ReviewComponent implements OnInit {
       this.id = params['id']
       
     })
-    this.get_movie_id(this.id);
+    this.get_movie_id();
   }
-  get_movie_id(id){
+  get_movie_id(){
     this._httpService.get_movie_id(this.id).subscribe(data=>{
       this.movie = data;
     })
   }
   delete_id(id){
     this._httpService.delete_id(this.id, id).subscribe(data=>{
+      console.log("deleted",data);
       this.movie = data;
     })
+    this.get_movie_id();
   }
   delete(id){
     this._httpService.delete(id).subscribe(data=>{

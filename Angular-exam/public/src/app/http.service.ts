@@ -24,6 +24,6 @@ export class HttpService {
     return this._http.delete('/movie/'+id);
   }
   delete_id(movie_id,id){
-    return this._http.delete('/review/'+movie_id,id);
+    return this._http.delete('/review/'+movie_id+'/'+id);
   }
 }
