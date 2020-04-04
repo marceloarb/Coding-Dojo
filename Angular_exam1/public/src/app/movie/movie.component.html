@@ -25,7 +25,7 @@
             <tbody>
                 <tr>
                     <td> {{x.title }} </td>
-                    <td *ngFor="let review of x.reviews "> {{review.stars }} </td>
+                    <td > {{x.avg}} </td>
                     <td> <button [routerLink]="['/movie/'+x._id]">Read reviews</button> || <button [routerLink]="['/create_review/'+x._id]" >Write review</button> </td>
                 </tr>
             </tbody>

@@ -12,6 +12,8 @@ export class MovieComponent implements OnInit {
   movies:any;
   form:boolean ;
   error:any;
+  sum:number;
+  avg:any;
 
   constructor(private _httpService: HttpService,
     private _router: Router) { }
@@ -21,6 +23,8 @@ export class MovieComponent implements OnInit {
     this.create_movie = {title:"",name:"",stars:0,review:""};
     this.movies = [];
     this.error = [];
+  
+    
     
     
     
@@ -42,10 +46,12 @@ export class MovieComponent implements OnInit {
     this._httpService.getmovies().subscribe(data=>{
       this.movies = data;
     })
+    
   }
   show(){
     this.form = true;
   }
+  
   
 
 }

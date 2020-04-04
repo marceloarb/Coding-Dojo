@@ -3,17 +3,31 @@ const Review = require('../models/model.js').Review;
 module.exports = {
     index: function(req,res){
         Movie.find()
-        .then(movies=>{
-            res.json(movies);
+        .then(movie=>{
+            // let sum = 0;
+            // for(let x = 0; x<movie.length; x++){
+            //     for(let i = 0; i<movie[x].reviews.length; i++){
+            //         sum+= movie[x].reviews[i].stars;
+            //     }
+            //     let avg = sum/movie[x].reviews.length
+            //     movie[x].avg=avg
+            //     console.log(sum);
+            //     console.log(movie[x].avg)
+            //     movie[x].save()
+            // }
+            
+            
+            
+            res.json(movie);
         })    
+        
+        
         .catch(err=>{
             res.json(err);
         })
         
     },
-    new: function(req,res){
-        
-    },
+    
     create_review:function(req,res){
         let review = new Review()
         review.name = req.body.name;
@@ -23,6 +37,7 @@ module.exports = {
         console.log("that is my review",review)
         Movie.findOne({_id: req.params.id})
             .then(movie=>{
+                
                 movie.reviews.push({name:req.body.name, stars:req.body.stars, review:req.body.review})
                 movie.save()
                 .then(result=>{
@@ -71,8 +86,20 @@ module.exports = {
             res.json(err);
         })
     },
-    edit:function(req,res){
-
+    avg:function(req,res){
+        Movie.find()
+        .then(movie=>{
+            let sum = 0;
+            for(let x = 0; x<movie.length; x++){
+                for(let i = 0; i<movie[x].reviews.length; i++){
+                    sum+= movie[x].reviews[i].stars;
+                }
+                let avg = sum/movie[x].reviews.length
+                movie[x].avg=avg
+                movie[x].save()
+            }
+            
+        })
     },
     update:function(req,res){
 

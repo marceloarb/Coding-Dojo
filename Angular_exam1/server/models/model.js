@@ -11,8 +11,8 @@ const MovieSchema = new mongoose.Schema({
     title: { type: String, required: true, minlength: [3, "Title should be At least 3 character "]},
     name: { type: String, required: true, minlength: [3, " Name should be At least 3 character "]},
     stars:{type: Number, required: true,minlength:[1,"Must give a rate"]},
+    avg:{type: Number},
     review:{type:String, required:true, minlength: [3, "Review should be At least 3 character "]},
-    
     reviews:[ReviewSchema]
 }, {timestamps: true});
 const model = {
